@@ -55,4 +55,24 @@ WHERE `payment_id` = <{expr}>;
 DELETE FROM `electrogrid`.`payment`
 WHERE <{where_expression}>;
 
+//Select Row from
+SET @payment_id_to_select = <{row_id}>;
+SELECT payment.*
+    FROM payment
+    WHERE payment.payment_id = @payment_id_to_select;
+
+//Deleet row from
+
+
+-- All objects that reference that row (directly or indirectly) will be deleted when this snippet is executed.
+-- To preview the rows to be deleted, use Select Row Dependencies
+START TRANSACTION;
+-- Provide the values of the primary key of the row to delete.
+SET @payment_id_to_delete = <{row_id}>;
+
+DELETE FROM payment
+    USING payment
+    WHERE payment.payment_id = @payment_id_to_delete;
+COMMIT;
+
 
