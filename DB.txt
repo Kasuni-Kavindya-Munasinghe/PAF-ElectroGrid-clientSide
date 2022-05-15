@@ -1,0 +1,58 @@
+//Create Table
+CREATE TABLE `payment` (
+  `payment_id` int NOT NULL AUTO_INCREMENT,
+  `card_type` varchar(10) DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `cardNo` varchar(16) DEFAULT NULL,
+  `exp_date` varchar(20) DEFAULT NULL,
+  `cvc` varchar(3) DEFAULT NULL,
+  `monthly_amount` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`payment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+//Insert data to table
+INSERT INTO `electrogrid`.`payment`
+(`payment_id`,
+`card_type`,
+`Name`,
+`cardNo`,
+`exp_date`,
+`cvc`,
+`monthly_amount`)
+VALUES
+(<{payment_id: }>,
+<{card_type: }>,
+<{Name: }>,
+<{cardNo: }>,
+<{exp_date: }>,
+<{cvc: }>,
+<{monthly_amount: }>);
+
+//Select all data in table
+
+SELECT `payment`.`payment_id`,
+    `payment`.`card_type`,
+    `payment`.`Name`,
+    `payment`.`cardNo`,
+    `payment`.`exp_date`,
+    `payment`.`cvc`,
+    `payment`.`monthly_amount`
+FROM `electrogrid`.`payment`;
+
+//Update table
+UPDATE `electrogrid`.`payment`
+SET
+`payment_id` = <{payment_id: }>,
+`card_type` = <{card_type: }>,
+`Name` = <{Name: }>,
+`cardNo` = <{cardNo: }>,
+`exp_date` = <{exp_date: }>,
+`cvc` = <{cvc: }>,
+`monthly_amount` = <{monthly_amount: }>
+WHERE `payment_id` = <{expr}>;
+
+//Delete table
+DELETE FROM `electrogrid`.`payment`
+WHERE <{where_expression}>;
+
+
